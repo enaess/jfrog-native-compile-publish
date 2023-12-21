@@ -1,0 +1,14 @@
+plugins {
+    id 'org.gradle.samples.wrapped-native-library'
+}
+
+version = "1.10.0"
+group = "libpcap"
+
+configurations.headers.outgoing.artifact(providers.provider() -> new File(project.projectDir, "linux/include"))
+configurations.linkDebug.outgoing.artifact(providers.provider() -> new File(project.projectDir, 'linux/x86_64/debug/lib/libpcap.a'))
+configurations.linkRelease.outgoing.artifact(providers.provider() -> new File(project.projectDir, 'linux/x86_64/release/lib/libpcap.a'))
+
+
+configurations.runtimeDebug.outgoing.artifact(providers.provider() -> new File(project.projectDir, 'linux/x86_64/debug/lib/libpcap.so'))
+configurations.runtimeRelease.outgoing.artifact(providers.provider() -> new File(project.projectDir, 'linux/x86_64/release/lib/libpcap.so'))

@@ -1,0 +1,21 @@
+pluginManagement {
+    repositories {
+        maven {
+            url 'https://artifactory.local/artifactory/gradle-dev'
+        }
+    }
+}
+
+dependencyResolutionManagement {
+    repositories {
+        maven {
+            url 'https://artifactory.local/artifactory/gradle-dev'
+        }
+    }
+}
+
+include ":app"
+include ":lib"
+include ":libpcap"
+
+rootProject.name = "com.absolute.test"

@@ -1,0 +1,15 @@
+plugins {
+    id "cpp-application"
+    id "maven-publish"
+    id "com.jfrog.artifactory" version "5.1.12"
+}
+
+version = "1.0.1"
+
+application {
+
+    dependencies {
+        implementation project (":lib")
+        implementation project (":libpcap")
+    }
+}

@@ -1,0 +1,19 @@
+plugins {
+    id "java-gradle-plugin"
+}
+
+
+gradlePlugin {
+
+    plugins {
+        wrappedBase {
+            id = "org.gradle.samples.wrapped-native-base"
+            implementationClass = "org.gradle.samples.plugins.WrappedNativeBasePlugin"
+        }
+
+        wrappedLibrary {
+            id = "org.gradle.samples.wrapped-native-library"
+            implementationClass = "org.gradle.samples.plugins.WrappedNativeLibraryPlugin"
+        }
+    }
+}

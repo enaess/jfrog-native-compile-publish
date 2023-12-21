@@ -1,0 +1,23 @@
+plugins {
+    id "com.jfrog.artifactory" version "5.1.12"
+}
+
+artifactoryPublish.skip = true
+artifactory {
+    contextUrl = 'https://artifactory.local/artifactory'
+    publish {
+        repository {
+            repoKey = "gradle-dev"
+            username = "${ArtifactoryUsername}"
+            password = "${ArtifactoryPassword}"
+        }
+        defaults {
+            publications 'ALL_PUBLICATIONS'
+        }
+        setPublishBuildInfo(true)
+    }
+    clientConfig.setIncludeEnvVars(true)
+    clientConfig.info.setProject('sat')
+    clientConfig.info.setBuildNumber("2")
+    clientConfig.info.setBuildName("Test Project")
+}
